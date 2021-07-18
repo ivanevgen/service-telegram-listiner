@@ -1,4 +1,4 @@
-package ru.yushin.app;
+package ru.yushin;
 
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;

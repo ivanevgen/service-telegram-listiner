@@ -1,13 +1,16 @@
 package ru.yushin.app.transfer.model;
 
+import org.telegram.telegrambots.meta.api.objects.Update;
+
 public class Message {
+    Update update;
     String userName;
-    String time;
     String value;
 
-    public Message(String userName, String time, String value) {
+
+    public Message(Update update, String userName, String value) {
+        this.update = update;
         this.userName = userName;
-        this.time = time;
         this.value = value;
     }
 
@@ -29,16 +32,18 @@ public class Message {
         this.value = value;
     }
 
+    public String getUserNameById(){
+        return Names.getRealNameById(
+                update.getMessage().getFrom().getId()
+        );
+    }
+
     public String[] evaluateValue(){
         return value.split("\n");
     }
 
     public String getUserName() {
         return Names.getRealName(userName);
-    }
-
-    public String getTime() {
-        return time;
     }
 
     public String getValue() {

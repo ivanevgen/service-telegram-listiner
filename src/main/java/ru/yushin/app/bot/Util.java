@@ -64,6 +64,7 @@ public class Util {
      * @return текущее время
      */
     public static String getCurrentTime(){
+        // todo Перевести на Locale класс как я сделал в мониторинге
         return new SimpleDateFormat("dd.MM.yyyy").format(new Date());
     }
 

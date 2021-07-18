@@ -1,7 +1,11 @@
 package ru.yushin.app.transfer.model;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 
 public class Names {
     static Map<String, String> names = new HashMap<String, String>();
@@ -29,5 +33,18 @@ public class Names {
             }
         }
         return fakeName;
+    }
+
+    static String getRealNameById(long id){
+        String realName = "";
+        try {
+            FileInputStream fileOutputStream = new FileInputStream("names.properties");
+            Properties properties = new Properties();
+            properties.load(fileOutputStream);
+            realName = properties.getProperty(String.valueOf(id));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return realName;
     }
 }
