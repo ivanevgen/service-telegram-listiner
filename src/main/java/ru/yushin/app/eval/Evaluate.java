@@ -60,5 +60,23 @@ public class Evaluate {
         return address;
     }
 
+    //Отказы
+    public double getFailureValue() {
+        return parseValue(values[values.length-3]);
+    }
 
+    //Брак ПУ
+    public double getDefectiveValuePY() {
+        return parseValue(values[values.length-2]);
+    }
+
+    //Брак ПЛ
+    public double getDefectiveValuePL() {
+        return parseValue(values[values.length-1]);
+    }
+
+    private double parseValue(String value){
+        return value.replaceAll(Evaluate.REG_EXP_PATTERN, "").length() == 0 ?
+                0 : Double.parseDouble(value.replaceAll(Evaluate.REG_EXP_PATTERN, ""));
+    }
 }

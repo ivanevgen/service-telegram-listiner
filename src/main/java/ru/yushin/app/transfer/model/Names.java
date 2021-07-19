@@ -9,6 +9,7 @@ import java.util.Properties;
 
 public class Names {
     static Map<String, String> names = new HashMap<String, String>();
+    static Map<String, String> namesById = new HashMap<String, String>();
 
     static {
         names.put("Ivan Evgenievich", "DEVELOPER");
@@ -24,6 +25,16 @@ public class Names {
         names.put("Евгений Евгений", "Евгений Ермолаев");
         names.put("Алексей Лазарев", "Алексей Лазарев");
         names.put("Евгений null", "Евгений Галин");
+
+        namesById.put("1641782618", "Георгий Гусев");
+        namesById.put("1133639559", "Виктор Бузин");
+        namesById.put("1512980956", "Андрей Корнеев");
+        namesById.put("1426724083", "Александр Сквиницкий");
+        namesById.put("1589305105", "Евгений Ермолаев");
+        namesById.put("1047540189", "Евгений Галин");
+        namesById.put("1402631319", "Вадим Морозов");
+        namesById.put("1400704599", "И. Ефимов");
+        namesById.put("1549856357", "Андрей Клевцов");
     }
 
     static String getRealName(String fakeName){
@@ -35,16 +46,12 @@ public class Names {
         return fakeName;
     }
 
-    static String getRealNameById(long id){
-        String realName = "";
-        try {
-            FileInputStream fileOutputStream = new FileInputStream("names.properties");
-            Properties properties = new Properties();
-            properties.load(fileOutputStream);
-            realName = properties.getProperty(String.valueOf(id));
-        } catch (IOException e) {
-            e.printStackTrace();
+    static String getRealNameById(String id){
+        for(String key : namesById.keySet()){
+            if(id.equalsIgnoreCase(key)){
+                return namesById.get(key);
+            }
         }
-        return realName;
+        return "[ERROR]id="+id;
     }
 }

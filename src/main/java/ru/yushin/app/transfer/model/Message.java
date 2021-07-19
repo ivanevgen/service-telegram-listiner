@@ -34,7 +34,7 @@ public class Message {
 
     public String getUserNameById(){
         return Names.getRealNameById(
-                update.getMessage().getFrom().getId()
+                update.getMessage().getFrom().getId().toString()
         );
     }
 
