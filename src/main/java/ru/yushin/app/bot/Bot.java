@@ -41,7 +41,7 @@ public class Bot extends TelegramLongPollingBot {
         // получим first + last name пользователя
         String userName = Util.getFirstAndLastNameReceiverMessage(update);
 
-        // на 19 число, чтобы выявить айдишники всех монтажников
+        // на 20 число, чтобы выявить айдишники недостающих монтажников
         System.out.println(input);
         System.out.println("---[id отправителя сообщения "+update.getMessage().getFrom().getId()+"]---");
         System.out.println();
