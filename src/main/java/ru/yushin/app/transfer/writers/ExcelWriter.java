@@ -60,7 +60,6 @@ public class ExcelWriter extends ExcelEngine implements IWriter{
                         valueToInsertDouble = Double.parseDouble(valueToInsert);
 
                         insertDataInCellByName(cellName, valueToInsertDouble);
-                        //insertDataInCellByName(cellName, valueToInsert);
                         continue;
                     } else {
                         valueToInsert = "0";
@@ -75,7 +74,6 @@ public class ExcelWriter extends ExcelEngine implements IWriter{
             }//--
 
             insertDataInCellByName(cellName, valueToInsertDouble);
-            //insertDataInCellByName(cellName, valueToInsert);
         }
 
         insertDataInCellByName("ВСЕГО ЗА ДЕНЬ УСТАНОВЛЕНО ПУ", getSumOfInstalledPY());
