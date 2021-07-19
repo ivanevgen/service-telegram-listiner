@@ -35,6 +35,7 @@ public class Names {
         namesById.put("1402631319", "Вадим Морозов");
         namesById.put("1400704599", "И. Ефимов");
         namesById.put("1549856357", "Андрей Клевцов");
+        namesById.put("1491334345", "Николай Камакин");
     }
 
     static String getRealName(String fakeName){

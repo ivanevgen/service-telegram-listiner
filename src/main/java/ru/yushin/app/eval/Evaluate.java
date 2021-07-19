@@ -10,6 +10,10 @@ public class Evaluate {
         this.values = values;
     }
 
+    public String[] getValues() {
+        return values;
+    }
+
     public String getAddress(){
         String address = values[1].trim();
 
@@ -37,10 +41,6 @@ public class Evaluate {
             builder.append(line);
         }
         return builder.toString().trim();
-    }
-
-    public String[] getValues() {
-        return values;
     }
 
     /**
