@@ -78,6 +78,8 @@ public class ExcelWriter extends ExcelEngine implements IWriter{
         }
 
         insertDataInCellByName("ВСЕГО ЗА ДЕНЬ УСТАНОВЛЕНО ПУ", getSumOfInstalledPY());
+
+        insertDataInCellByName("айди сообщения", message.getMessageId());
     }
 
 }

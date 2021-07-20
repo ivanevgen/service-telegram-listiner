@@ -1,11 +1,7 @@
 package ru.yushin.app.transfer.model;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 
 public class Names {
     static Map<String, String> names = new HashMap<String, String>();
@@ -25,7 +21,7 @@ public class Names {
         names.put("132537132", "Владимир ?");
         names.put("1441852663", "Иван Тюрин");
         names.put("1453539680", "Денис Клевцов");
-        //names.put("266119069", ""); подсунуть сообщение в отчёт
+        //names.put("266119069", "Денис Клевцов"); //подсунуть сообщение в отчёт
     }
 
     static String getRealNameById(String id){

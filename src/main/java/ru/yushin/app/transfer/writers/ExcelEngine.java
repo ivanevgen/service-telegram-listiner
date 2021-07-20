@@ -40,6 +40,7 @@ public abstract class ExcelEngine {
         columsNames.put("Остаток ПУ 3Ф 2Т", 17);
         columsNames.put("Остаток ПУ 3Ф 3Т", 18);
         columsNames.put("Остаток ПЛ", 19);
+        columsNames.put("айди сообщения", 20);
     }
 
     /**
@@ -59,7 +60,7 @@ public abstract class ExcelEngine {
                     COUNT_ROW++;
                 } else {
                     sheet.createRow(COUNT_ROW);
-                    for (int i = 0; i < 19; i++) {
+                    for (int i = 0; i < 21; i++) {
                         sheet.getRow(COUNT_ROW).createCell(i);
                     }
                     break;

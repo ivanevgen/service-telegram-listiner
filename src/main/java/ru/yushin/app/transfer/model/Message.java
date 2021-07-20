@@ -6,12 +6,14 @@ public class Message {
     Update update;
     String userName;
     String value;
+    String messageId;
 
 
     public Message(Update update, String userName, String value) {
         this.update = update;
         this.userName = userName;
         this.value = value;
+        messageId = update.getMessage().getMessageId().toString();
     }
 
     /**
@@ -57,6 +59,9 @@ public class Message {
         }
     }
 
+    public String getMessageId() {
+        return messageId;
+    }
 
     public String getValue() {
         return value;
