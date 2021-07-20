@@ -42,8 +42,9 @@ public class Bot extends TelegramLongPollingBot {
         String userName = Util.getFirstAndLastNameReceiverMessage(update);
 
         // на 20 число, чтобы выявить айдишники недостающих монтажников
+        String userId = update.getMessage().getFrom().getId().toString();
         System.out.println(input);
-        System.out.println("---[id отправителя сообщения "+update.getMessage().getFrom().getId()+"]---");
+        System.out.println("---[id отправителя сообщения "+ userId +"]---");
         System.out.println();
         System.out.println();
 
@@ -54,7 +55,7 @@ public class Bot extends TelegramLongPollingBot {
             transferMessagesServiceEXCEL.transferExcel();
         }
 
-        commandToSendExcel(input, chatIdReceivedUser, userName);
+        commandToSendExcel(userId, input, chatIdReceivedUser);
     }
 
     /**
@@ -78,21 +79,15 @@ public class Bot extends TelegramLongPollingBot {
     }
 
     /**
-     *
-     * @param input команда для выгрузки
-     * @param chatIdReceivedUser айди чата где сидит бот
+     *  Сашин id 313243971, сделать так, чтобы только ему по команде отправлялся отчёт
      */
-    private void commandToSendExcel(String input, String chatIdReceivedUser, String userName){
-        if(input.equalsIgnoreCase("выгрузить")){
-
-            if(chatIdReceivedUser.contains(REPORT_CHAT) || chatIdReceivedUser.contains(ADMIN_CHAT)){
-                Util.sendMessageInChat(String.format("Пользователю [%s] выгружается отчет.", userName), chatIdReceivedUser);
-
-                try {
-                    Util.sendDocumentToUser(chatIdReceivedUser);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+    private void commandToSendExcel(String userId, String input, String chatIdReceivedUser){
+        if((userId.equals("313243971") || userId.equals("266119069")) && input.equalsIgnoreCase("выгрузить")){
+            Util.sendMessageInChat("Выгружаем", chatIdReceivedUser);
+            try {
+                Util.sendDocumentToUser(chatIdReceivedUser);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }

@@ -19,8 +19,7 @@ public class Util {
      * @return текст последнего сообщения полученного ботом
      */
     static String getMessage(Update update){
-        String message = update.getMessage().getText();
-        return message == null ? "" : message;
+        return update.getMessage().getText() == null ? "" : update.getMessage().getText();
     }
 
     /**
