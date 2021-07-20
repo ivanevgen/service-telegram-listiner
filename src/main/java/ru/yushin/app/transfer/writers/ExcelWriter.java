@@ -6,6 +6,7 @@ import ru.yushin.app.transfer.model.Message;
 
 public class ExcelWriter extends ExcelEngine implements IWriter{
     Message message;
+    public static final int START_PARSE_MESSAGE = 2; // c какой строки начинаем парсить сообщение
 
     public void write(Message message) {
         this.message = message;
@@ -34,7 +35,7 @@ public class ExcelWriter extends ExcelEngine implements IWriter{
         insertDataInCellByName("Брак ПЛ", evaluator.getDefectiveValuePL());
 
         //парсим сообщение
-        for(int i = 2; i < evaluator.getValues().length - 3; i++){
+        for(int i = START_PARSE_MESSAGE; i < evaluator.getValues().length - 3; i++){
             String line = evaluator.getValues()[i];
             String valueToInsert = "";
             double valueToInsertDouble = 0;
