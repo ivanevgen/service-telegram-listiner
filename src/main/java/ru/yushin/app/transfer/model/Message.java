@@ -38,13 +38,25 @@ public class Message {
         );
     }
 
+    /**
+     * Костыль против Дениса Клевцова, он лупит своё ФИО в сообщение зачем-то
+     * @return
+     */
     public String[] evaluateValue(){
-        return value.split("\n");
+        String[] arr = value.split("\n");
+        if(arr.length == 11){
+            return arr;
+        } else {
+            String[] newArr = new String[arr.length - 1];
+            int j = 1;
+            for(int i = 0; i < newArr.length; i++){
+                newArr[i] = arr[j];
+                j++;
+            }
+            return newArr;
+        }
     }
 
-    public String getUserName() {
-        return Names.getRealName(userName);
-    }
 
     public String getValue() {
         return value;

@@ -27,6 +27,12 @@ public class ExcelWriter extends ExcelEngine implements IWriter{
 
         insertDataInCellByName("Адрес", evaluator.getAddress());
 
+        insertDataInCellByName("Отказы", evaluator.getFailureValue());
+
+        insertDataInCellByName("Брак ПУ", evaluator.getDefectiveValuePY());
+
+        insertDataInCellByName("Брак ПЛ", evaluator.getDefectiveValuePL());
+
         //парсим сообщение
         for(int i = 2; i < evaluator.getValues().length - 3; i++){
             String line = evaluator.getValues()[i];
