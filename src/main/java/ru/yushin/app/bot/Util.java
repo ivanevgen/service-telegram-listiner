@@ -134,7 +134,7 @@ public class Util {
     }
 
     public static List<String> getEmailsForRecent(){
-        List<String> emails = new ArrayList<>();
+        List<String> emails = new ArrayList<String>();
         emails.add("Efremov16@yandex.ru");
         emails.add("ivaan7845@gmail.com");
         return emails;
