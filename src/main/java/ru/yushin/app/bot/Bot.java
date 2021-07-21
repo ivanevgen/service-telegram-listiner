@@ -8,7 +8,6 @@ import ru.yushin.app.transfer.TransferExcel;
 import ru.yushin.app.transfer.TransferMessageService;
 import ru.yushin.app.transfer.TransferTxt;
 import ru.yushin.app.transfer.model.Message;
-import ru.yushin.mail.Email;
 
 import javax.mail.MessagingException;
 

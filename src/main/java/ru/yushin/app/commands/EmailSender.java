@@ -1,4 +1,4 @@
-package ru.yushin.mail;
+package ru.yushin.app.commands;
 
 
 import javax.activation.DataHandler;
@@ -11,7 +11,7 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import java.util.Properties;
 
-public class Email {
+public class EmailSender {
 
     public String sendEmail(String address) throws MessagingException{
         String host = "smtp.gmail.com";

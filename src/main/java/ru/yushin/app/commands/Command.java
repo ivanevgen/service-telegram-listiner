@@ -1,7 +1,6 @@
 package ru.yushin.app.commands;
 
 import ru.yushin.app.bot.Util;
-import ru.yushin.mail.Email;
 
 import javax.mail.MessagingException;
 
@@ -25,7 +24,7 @@ public class Command {
 
             if((userId.equals("313243971") || userId.equals("266119069"))){
 
-                Email email = new Email();
+                EmailSender email = new EmailSender();
                 Util.sendMessageInChat("Выгружаем", chatIdReceivedUser);
                 try {
                     for (String address : emailAddress) {
