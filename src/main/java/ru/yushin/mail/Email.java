@@ -15,8 +15,8 @@ public class Email {
 
     public String sendEmail(String address) throws MessagingException{
         String host = "smtp.gmail.com";
-        String Password = "ogmdkshzyfvyicuc";
-        String from = "ivaan7845@gmail.com";
+        String Password = "ehabrsvdyvmqkpal";
+        String from = "autoreport11999@gmail.com";
         String toAddress = address;
         String filename = "actual.xlsx";
         // Get system properties
