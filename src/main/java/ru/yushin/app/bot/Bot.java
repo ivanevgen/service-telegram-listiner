@@ -7,15 +7,15 @@ import ru.yushin.app.transfer.TransferExcel;
 import ru.yushin.app.transfer.TransferMessageService;
 import ru.yushin.app.transfer.TransferTxt;
 import ru.yushin.app.transfer.model.Message;
+import ru.yushin.mail.Email;
 
+import javax.mail.MessagingException;
 import java.io.IOException;
 
 public class Bot extends TelegramLongPollingBot {
 
     static final String BOT_TOKEN = "1729676833:AAHqC72pHn6aQKNL4WRPO5f_TMpZrzK-JsQ";
     static final String BOT_NAME = "VigryzkaProd_bot";
-    static final String REPORT_CHAT = "-592971739";
-    static final String ADMIN_CHAT = "-526991630";
 
     TransferMessageService transferMessagesServiceEXCEL;
     Message message;
@@ -44,18 +44,19 @@ public class Bot extends TelegramLongPollingBot {
         // на 20 число, чтобы выявить айдишники недостающих монтажников
         String userId = update.getMessage().getFrom().getId().toString();
         System.out.println(input);
-        System.out.println("---[id отправителя сообщения "+ userId +"]---");
-        System.out.println();
+        System.out.println(String.format("---[id юзера[%s]=[%s]---", userName ,userId));
         System.out.println();
 
         // отправим в excel файл если это сообщение от монтажника
         if(input.contains("Установлено ПУ 1Т") || input.contains("Установлено ПУ 2Т")){
+            // -336352650 общий чат СМНУ ВК
+            // -526991630 admin bot
             message = new Message(update, userName, input);
             transferMessagesServiceEXCEL = new TransferMessageService(message, new TransferExcel());
             transferMessagesServiceEXCEL.transferExcel();
         }
 
-        commandToSendExcel(userId, input, chatIdReceivedUser);
+        sendReportToEmail(userId, input, chatIdReceivedUser, "Efremov16@yandex.ru");
     }
 
     /**
@@ -79,16 +80,29 @@ public class Bot extends TelegramLongPollingBot {
     }
 
     /**
-     *  Сашин id 313243971, сделать так, чтобы только ему по команде отправлялся отчёт
+     *
+     * @param userId id пользователя
+     * @param input сообщение чата, если соответствует паттерну, то отправим на почту
+     * @param chatIdReceivedUser чат, куда напишем сообщение об успещной отправке сообщения на почту
+     * @param emailAddress целевой email адрес куда отправляем отчёт
      */
-    private void commandToSendExcel(String userId, String input, String chatIdReceivedUser){
+    private void sendReportToEmail(String userId,
+                                   String input,
+                                   String chatIdReceivedUser,
+                                   String emailAddress){
+
+        Email email = new Email();
+
         if((userId.equals("313243971") || userId.equals("266119069")) && input.equalsIgnoreCase("выгрузить")){
             Util.sendMessageInChat("Выгружаем", chatIdReceivedUser);
             try {
-                Util.sendDocumentToUser(chatIdReceivedUser);
-            } catch (IOException e) {
+                //Util.sendDocumentToUser(chatIdReceivedUser);
+                String sended = email.sendEmail(emailAddress);
+                Util.sendMessageInChat(sended, chatIdReceivedUser);
+            } catch (MessagingException e) {
                 e.printStackTrace();
             }
         }
+
     }
 }
