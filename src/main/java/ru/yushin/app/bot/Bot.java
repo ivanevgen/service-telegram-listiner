@@ -96,7 +96,6 @@ public class Bot extends TelegramLongPollingBot {
         if((userId.equals("313243971") || userId.equals("266119069")) && input.equalsIgnoreCase("выгрузить")){
             Util.sendMessageInChat("Выгружаем", chatIdReceivedUser);
             try {
-                //Util.sendDocumentToUser(chatIdReceivedUser);
                 String sended = email.sendEmail(emailAddress);
                 Util.sendMessageInChat(sended, chatIdReceivedUser);
             } catch (MessagingException e) {

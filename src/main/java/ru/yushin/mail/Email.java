@@ -41,17 +41,18 @@ public class Email {
         multipart.addBodyPart(messageBodyPart);
         message.setContent(multipart);
 
-        String succes = "Mail not sended to [" + address + "]";
+        String isSendedMessage = "Mail not sended to [" + address + "]";
         try {
             Transport tr = session.getTransport("smtps");
             tr.connect(host, from, Password);
             tr.sendMessage(message, message.getAllRecipients());
-            succes = "Mail Sent Successfully to email [" + address + "]";
+            isSendedMessage = "Mail Sent Successfully to email [" + address + "]";
             tr.close();
         } catch (SendFailedException sfe) {
             System.out.println(sfe);
+            return isSendedMessage;
         }
-        return succes;
+        return isSendedMessage;
     }
 
 }

@@ -10,13 +10,18 @@ public class ExcelWriter extends ExcelEngine implements IWriter{
 
     public void write(Message message) {
         this.message = message;
-        sendDataInExcelFile();
+//        if(message.getValue().contains("###остаток")){
+//            sendDataInExcelFileLostsPY();
+//        } else {
+//            sendDataInExcelFileActual();
+//        }
+        sendDataInExcelFileActual();
     }
 
     /**
-     * Запись данных в эксель файл
+     * Запись данных в эксель файл actual
      */
-    private void sendDataInExcelFile(){
+    private void sendDataInExcelFileActual(){
         Evaluate evaluator = new Evaluate(message.evaluateValue());
 
         // создадим строку перед заполнением
@@ -80,6 +85,10 @@ public class ExcelWriter extends ExcelEngine implements IWriter{
         insertDataInCellByName("ВСЕГО ЗА ДЕНЬ УСТАНОВЛЕНО ПУ", getSumOfInstalledPY());
 
         insertDataInCellByName("айди сообщения", message.getMessageId());
+    }
+
+    private void sendDataInExcelFileLostsPY(){
+
     }
 
 }
