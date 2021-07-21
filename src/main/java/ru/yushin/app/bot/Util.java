@@ -130,4 +130,11 @@ public class Util {
             System.out.println("\n");
         } catch (IOException ex){}
     }
+
+    public static String[] getEmailsForRecent(){
+        String[] arr = new String[2];
+        arr[0] = "Efremov16@yandex.ru";
+        arr[1] = "ivaan7845@gmail.com";
+        return arr;
+    }
 }
