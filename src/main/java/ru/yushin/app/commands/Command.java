@@ -3,6 +3,7 @@ package ru.yushin.app.commands;
 import ru.yushin.app.bot.Util;
 
 import javax.mail.MessagingException;
+import java.util.List;
 
 /**
  * Класс команд для бота
@@ -19,7 +20,7 @@ public class Command {
     public static void commandSendReportToEmails(String userId,
                                          String input,
                                          String chatIdReceivedUser,
-                                         String[] emailAddress){
+                                         List<String> emailAddress){
         if(input.equalsIgnoreCase("выгрузить")){
 
             if((userId.equals("313243971") || userId.equals("266119069"))){

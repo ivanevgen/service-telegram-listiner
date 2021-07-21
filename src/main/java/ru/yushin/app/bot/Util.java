@@ -6,7 +6,9 @@ import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import static ru.yushin.app.bot.Bot.BOT_TOKEN;
 
@@ -131,10 +133,10 @@ public class Util {
         } catch (IOException ex){}
     }
 
-    public static String[] getEmailsForRecent(){
-        String[] arr = new String[2];
-        arr[0] = "Efremov16@yandex.ru";
-        arr[1] = "ivaan7845@gmail.com";
-        return arr;
+    public static List<String> getEmailsForRecent(){
+        List<String> emails = new ArrayList<>();
+        emails.add("Efremov16@yandex.ru");
+        emails.add("ivaan7845@gmail.com");
+        return emails;
     }
 }
