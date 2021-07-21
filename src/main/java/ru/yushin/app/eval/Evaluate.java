@@ -32,7 +32,7 @@ public class Evaluate {
     /**
      * //-- для случая, если в адресе присутствует '-'
      * @param address
-     * @return
+     * @return красивый адрес
      */
     private String appendAddress(String address){
         String[] arr = address.split("-");
@@ -46,7 +46,7 @@ public class Evaluate {
     /**
      * //-- для случая, если в адресе присутствует 'АДРЕС/Адрес'
      * @param address
-     * @return
+     * @return красивый адрес
      */
     private String replaceAddress(String address){
         String replaceAddress = "";

@@ -10,7 +10,6 @@ import ru.yushin.app.transfer.model.Message;
 import ru.yushin.mail.Email;
 
 import javax.mail.MessagingException;
-import java.io.IOException;
 
 public class Bot extends TelegramLongPollingBot {
 
