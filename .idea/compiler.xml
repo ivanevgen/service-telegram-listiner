@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="service-telegram-listiner" target="8" />
+      <module name="service-telegram-listiner" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
