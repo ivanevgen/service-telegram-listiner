@@ -15,8 +15,8 @@ import java.util.Map;
 public abstract class ExcelEngine {
 
     protected static final String FILE_NAME = "testTable.xlsx";
-    protected static int COUNT_ROW = 1;
     protected static Map<String, Integer> columsNames;
+    protected static int COUNT_ROW = getFreeRow();
 
     static {
         columsNames = new HashMap<String, Integer>();
@@ -41,6 +41,32 @@ public abstract class ExcelEngine {
         columsNames.put("Остаток ПУ 3Ф 3Т", 18);
         columsNames.put("Остаток ПЛ", 19);
         columsNames.put("айди сообщения", 20);
+    }
+
+    /**
+     * оптимизация поиска свободной строки для заполнения
+     * @return
+     */
+    private static int getFreeRow(){
+        int row = 1;
+        try {
+            FileInputStream file = new FileInputStream(new File(FILE_NAME));
+            FileInputStream inputStream = new FileInputStream(FILE_NAME);
+            XSSFWorkbook workBook = new XSSFWorkbook(inputStream);
+            Sheet sheet = workBook.getSheetAt(0);
+
+            while (true){
+                if(sheet.getRow(row) != null) {
+                    row++;
+                } else {
+                    break;
+                }
+            }
+
+            file.close();
+            return row;
+        } catch (IOException ex){}
+        return row;
     }
 
     /**
