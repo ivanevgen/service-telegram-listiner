@@ -34,7 +34,7 @@ public class Bot extends TelegramLongPollingBot {
 
         // получим текст сообщения
         String input = Util.getMessage(update);
-        System.out.println(input);
+
         // получим first + last name пользователя
         String userName = Util.getFirstAndLastNameReceiverMessage(update);
 
@@ -48,5 +48,10 @@ public class Bot extends TelegramLongPollingBot {
         }
 
         Command.commandSendReportToEmails(userId, input, chatIdReceivedUser, Util.getEmailsForRecent());
+
+        System.out.println();
+        System.out.println(Util.getCurrentTime());
+        System.out.println(input);
+        System.out.println();
     }
 }
