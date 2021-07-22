@@ -13,8 +13,9 @@ import javax.mail.MessagingException;
 
 public class Bot extends TelegramLongPollingBot {
 
-    static final String BOT_TOKEN = "1729676833:AAHqC72pHn6aQKNL4WRPO5f_TMpZrzK-JsQ";
-    static final String BOT_NAME = "VigryzkaProd_bot";
+    //static final String BOT_TOKEN = "1729676833:AAHqC72pHn6aQKNL4WRPO5f_TMpZrzK-JsQ";
+    static final String BOT_TOKEN = "483351577:AAH8iX-MeUTGkUUVv0uu75WISA_WpQd2kzw";
+    static final String BOT_NAME = "Reinevanbot";
 
     TransferMessageService transferMessagesServiceEXCEL;
     Message message;
