@@ -34,7 +34,7 @@ public class Bot extends TelegramLongPollingBot {
 
         // получим текст сообщения
         String input = Util.getMessage(update);
-
+        System.out.println(input);
         // получим first + last name пользователя
         String userName = Util.getFirstAndLastNameReceiverMessage(update);
 
