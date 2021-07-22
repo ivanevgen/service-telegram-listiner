@@ -1,0 +1,16 @@
+ru\yushin\app\transfer\TransferTxt.class
+ru\yushin\app\commands\Command.class
+ru\yushin\app\commands\EmailSender.class
+ru\yushin\app\transfer\writers\ExcelEngine.class
+ru\yushin\Launch.class
+ru\yushin\app\bot\Bot.class
+ru\yushin\app\transfer\ITransfer.class
+ru\yushin\app\transfer\TransferMessageService.class
+ru\yushin\app\transfer\model\Message.class
+ru\yushin\app\transfer\TransferExcel.class
+ru\yushin\app\transfer\writers\TxtWriter.class
+ru\yushin\app\bot\Util.class
+ru\yushin\app\eval\Evaluate.class
+ru\yushin\app\transfer\model\Names.class
+ru\yushin\app\transfer\writers\ExcelWriter.class
+ru\yushin\app\transfer\writers\IWriter.class
