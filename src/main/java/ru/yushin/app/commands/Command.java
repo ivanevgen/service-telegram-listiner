@@ -29,8 +29,10 @@ public class Command {
                 Util.sendMessageInChat("Выгружаем", chatIdReceivedUser);
                 try {
                     for (String address : emailAddress) {
-                        String sended = email.sendEmail(address);
-                        Util.sendMessageInChat(sended, chatIdReceivedUser);
+                        Util.sendMessageInChat(
+                                email.sendEmail(address),
+                                chatIdReceivedUser
+                        );
                     }
                 } catch (MessagingException e) {
                     e.printStackTrace();

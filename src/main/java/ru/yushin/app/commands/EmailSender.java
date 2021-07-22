@@ -11,8 +11,17 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import java.util.Properties;
 
+/**
+ * Отправлятор сообщений на электронную почту
+ */
 public class EmailSender {
 
+    /**
+     *
+     * @param address куда отправляем письмо
+     * @return сообщение об успешной/не успешной отправке письма
+     * @throws MessagingException
+     */
     public String sendEmail(String address) throws MessagingException{
         String host = "smtp.gmail.com";
         String Password = "ehabrsvdyvmqkpal";
