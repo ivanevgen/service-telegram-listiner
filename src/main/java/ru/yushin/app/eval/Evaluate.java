@@ -16,17 +16,18 @@ public class Evaluate {
 
     public String getAddress(){
         String address = values[1].trim();
+        return getOriginalAddress(address);
+    }
 
-        if(address.split("-").length > 2){
-            return appendAddress(address);
+    private String getOriginalAddress(String address) {
+        String line = address;
+        if(address.contains("Адрес")){
+            line = address.replaceAll("Адрес", "");
         }
-
-        try {
-            return address.split("-")[1].trim();
-        } catch (IndexOutOfBoundsException ex){
-            return replaceAddress(address).trim();
+        if(address.contains("АДРЕС")){
+            line = address.replaceAll("АДРЕС", "");
         }
-
+        return line.trim();
     }
 
     /**
