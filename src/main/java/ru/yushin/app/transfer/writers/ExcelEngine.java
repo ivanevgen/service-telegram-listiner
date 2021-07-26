@@ -16,7 +16,7 @@ public abstract class ExcelEngine {
 
     protected static final String FILE_NAME = "actual.xlsx";
     protected static Map<String, Integer> columsNames;
-    protected static int COUNT_ROW = getFreeRow();
+    protected static int COUNT_ROW = 1;
 
     static {
         columsNames = new HashMap<String, Integer>();

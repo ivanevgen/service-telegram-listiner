@@ -51,6 +51,7 @@ public class Bot extends TelegramLongPollingBot {
 
         System.out.println();
         System.out.println(Util.getCurrentTime());
+        System.out.println("user id="+userId);
         System.out.println(input);
         System.out.println();
     }
