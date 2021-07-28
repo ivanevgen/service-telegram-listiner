@@ -41,7 +41,11 @@ public class Bot extends TelegramLongPollingBot {
         String userId = update.getMessage().getFrom().getId().toString();
 
         // отправим в excel файл если это сообщение от монтажника
-        if(input.contains("Установлено ПУ 1Т") || input.contains("Установлено ПУ 2Т")){
+        if(input.contains("Установлено ПУ 1Т")
+                || input.contains("Установлено ПУ 2Т")
+                || input.contains("Установлено ПУ 1т")
+                || input.contains("Установлено ПУ 2т")
+                || input.contains("Установлено ПУ 3ф 1т")){
             message = new Message(update, userName, input);
             transferMessagesServiceEXCEL = new TransferMessageService(message, new TransferExcel());
             transferMessagesServiceEXCEL.transferExcel();
