@@ -80,4 +80,28 @@ public class Evaluate {
         return value.replaceAll(Evaluate.REG_EXP_PATTERN, "").length() == 0 ?
                 0 : Double.parseDouble(value.replaceAll(Evaluate.REG_EXP_PATTERN, ""));
     }
+
+    /**
+     *
+     * @param value
+     * @return возвращает число установленных ПУ
+     */
+    public double parseIstalledAnyPY(String value){
+        String parsedValue = "";
+        if(value.split("-").length > 1 || value.split("–").length > 1){
+            if(value.contains("-")){
+                parsedValue = value.split("-")[1].trim();
+            } else if(value.contains("–")){
+                parsedValue = value.split("–")[1].trim();
+            }
+        } else {
+            parsedValue = "0";
+        }
+
+        if(parsedValue.length() == 0){
+            return 0;
+        } else {
+            return Double.parseDouble(parsedValue.replaceAll(REG_EXP_PATTERN, ""));
+        }
+    }
 }
