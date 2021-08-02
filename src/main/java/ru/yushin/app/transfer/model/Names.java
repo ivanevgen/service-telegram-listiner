@@ -27,12 +27,18 @@ public class Names {
         //names.put("266119069", "Денис Клевцов"); //подсунуть сообщение в отчёт
     }
 
-    static String getRealNameById(String id){
+    /**
+     *
+     * @param userName имя как в телеге
+     * @param id айдишник
+     * @return вернуть реальное имя по айди, если нет айди вернем имя как в телеге
+     */
+    static String getRealNameById(String userName, String id){
         for(String key : names.keySet()){
             if(id.equalsIgnoreCase(key)){
                 return names.get(key);
             }
         }
-        return "[ERROR]id="+id;
+        return userName + "[id="+id+"]";
     }
 }
