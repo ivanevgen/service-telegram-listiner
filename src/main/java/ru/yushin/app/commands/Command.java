@@ -21,7 +21,7 @@ public class Command {
                                          String input,
                                          String chatIdReceivedUser,
                                          List<String> emailAddress){
-        if(input.equalsIgnoreCase("выгрузить")){
+        if(input.equalsIgnoreCase("/send")){
 
             if((userId.equals("313243971") || userId.equals("266119069"))){
 
